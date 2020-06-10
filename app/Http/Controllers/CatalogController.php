@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 
 class CatalogController extends Controller
 {
@@ -14,6 +15,8 @@ class CatalogController extends Controller
     
     public function default()
     {
-        return view('catalog.default');
+        $products = Product::all();
+        
+        return view('catalog.default', ['products' => $products]);
     }
 }
