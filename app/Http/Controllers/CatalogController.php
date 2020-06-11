@@ -15,8 +15,9 @@ class CatalogController extends Controller
     
     public function default()
     {
-        $products = Product::all();
-        
+        //$products = Product::all();
+        $products = Product::paginate(10);
+
         return view('catalog.default', ['products' => $products]);
     }
 }
