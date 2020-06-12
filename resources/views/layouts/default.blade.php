@@ -3,9 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-        <script src="{{ mix('/js/app.js') }}"></script>
         <link href="https://bootstrap-4.ru/dist/css/bootstrap.min.css"  rel="stylesheet">
         <link href="{{ mix('/css/app.css') }}"  rel="stylesheet">
 
@@ -36,6 +33,6 @@
         <div class="text-center">Тестовое задание на должность "WEB-программист PHP(middle)"</div>
       </footer>
     </div>
-
+    <script src="{{ mix('/js/app.js') }}"></script>
     </body>
 </html>

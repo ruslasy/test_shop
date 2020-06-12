@@ -18,5 +18,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('catalog')->group(function () {
-    Route::get('/', 'CatalogController@default');
+    Route::get('/', 'Catalog\CatalogController@default');
+    Route::get('cart/toggle/{id}', 'Catalog\CartController@toggle');
+
 });

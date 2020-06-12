@@ -19283,6 +19283,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -19314,6 +19316,30 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/cart.js":
+/*!******************************!*\
+  !*** ./resources/js/cart.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.querySelectorAll('.add-cart-action').forEach(function (el) {
+  el.addEventListener("click", addToCart, false);
+});
+
+function addToCart() {
+  var idProduct = this.getAttribute('data-id-product');
+  fetch('\\api/catalog/cart/toggle/' + idProduct, {
+    method: 'PUT'
+  }).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    console.log(data);
+  });
+}
 
 /***/ }),
 

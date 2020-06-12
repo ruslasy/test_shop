@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-md-6">
                       @if ($product->available)
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">в корзину</button>
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary add-cart-action" data-id-product="{{ $product->id }}">в корзину</button>
                       @else
                         <div class="text-right">нет в наличии</div>
                       @endif
