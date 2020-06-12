@@ -19,7 +19,7 @@
         <div class="card mb-4 box-shadow">
           <div class="card-body">
             <div style="height: 210px;">
-              <img src="{{$product->getPicture()}}" alt="product" class="img-fluid" style="max-height: 210px;">
+              <img src="/bg.jpg" srcset="{{$product->getPicture()}}" alt="product" class="img-fluid" style="max-height: 210px;">
             </div>
           <div class="text-center font-weight-bold"><a href="{{route('product', ['id' => $product->id])}}">{{ $product->name }}</a></div>
             <hr>
