@@ -9,21 +9,16 @@
         <title>App Name - @yield('title')</title>
     </head>
     <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <div class="navbar navbar-expand-md navbar-ligth box-shadow px-md-5 p-3 sticky-top nav-bar-custom ">
       <nav class="my-2 my-md-0 mr-md-auto">
         <a class="p-2 text-dark" href="/">Главная</a>
         <a class="p-2 text-dark" href="/catalog">Каталог</a>
       </nav>
-      <a type="button" class="btn btn-outline-secondary">
+      <a type="button" class="btn btn-outline-secondary position-relative">
         Корзина
         <img class="header__button-icon" src="/cart.svg">
-        <span title="Количество товаров в корзине: 1" class="count">1</span>
+        <span title="Количество товаров в корзине: 1" class="count" id="cart-product-count">0</span>
       </a>
-
-    </div>
-
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="display-4">Каталог товаров</h1>
     </div>
         <div class="container">
             @yield('content')

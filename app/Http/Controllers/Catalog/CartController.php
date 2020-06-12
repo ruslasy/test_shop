@@ -18,6 +18,12 @@ class CartController extends Controller
         
     }
 
+    public function count()
+    {
+        $cart = session()->get('cart.items') ?? [];
+        return Response()->json(['count' => count($cart)]);
+    }
+
     public function toggle($id)
     {
         $product = Product::find($id);
@@ -32,17 +38,13 @@ class CartController extends Controller
         if (in_array($id, $cart)) {
 
             unset($cart[array_search($id, $cart)]);
-
-            session()->put('cart.items', $cart);
-
-            return Response()->json(count($cart));
+        }else{
+            $cart[] = $product->id;
         }
-
-        $cart[] = $product->id;
 
         session()->put('cart.items', $cart);
 
-        return Response()->json(count($cart));
+        return Response()->json(['count' => count($cart)]);
     }
     
 }

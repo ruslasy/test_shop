@@ -19329,17 +19329,37 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 document.querySelectorAll('.add-cart-action').forEach(function (el) {
   el.addEventListener("click", addToCart, false);
 });
+/*
+document.querySelectorAll('.add-cart-action-del').forEach(el => {
+  el.addEventListener("click", DelFromCart, false);
+});
+*/
 
 function addToCart() {
+  var _this = this;
+
   var idProduct = this.getAttribute('data-id-product');
-  fetch('\\api/catalog/cart/toggle/' + idProduct, {
-    method: 'PUT'
-  }).then(function (response) {
+  fetch('\\catalog/cart/toggle/' + idProduct).then(function (response) {
     return response.json();
   }).then(function (data) {
-    console.log(data);
+    var cartCount = document.getElementById('cart-product-count');
+    cartCount.innerHTML = data['count'];
+
+    if (_this.innerHTML == 'в корзину') {
+      _this.innerHTML = 'удалить';
+    } else {
+      _this.innerHTML = 'в корзину';
+    }
   });
 }
+
+fetch('\\catalog/cart/').then(function (response) {
+  return response.json();
+}).then(function (data) {
+  var cartCount = document.getElementById('cart-product-count');
+  cartCount.innerHTML = data['count'];
+  document.getElementById('cart-product-count').style.display = 'flex';
+});
 
 /***/ }),
 

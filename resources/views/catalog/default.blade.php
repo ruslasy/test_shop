@@ -3,16 +3,25 @@
 @section('title', 'Catalog')
 
 @section('content')
-    
+
+<div class="pricing-header px-3 py-3 pt-md-3 pb-md-4 mx-auto text-center ">
+  <h1 class="display-4">Каталог товаров</h1>
+</div>
+<div class="pricing-header px-3 py-3 pt-md-3 pb-md-4 mx-auto text-center ">
+</div>
+<div class="text-center p-3">
+  <a href="{{ Request::url()}}?price={{$sortPrice}}">сортировать по цене</a>
+  <a href="{{ Request::url()}}?name={{$sortName}}">сортировать по названию</a>
+</div>
 <div class="row row-cols-1 row-cols-md-3">
     @foreach ($products as $product)
     <div class="col mb-4">
         <div class="card mb-4 box-shadow">
           <div class="card-body">
-            <div>
-              <img src="https://www.claires.com/dw/image/v2/BBTK_PRD/on/demandware.static/-/Sites-master-catalog/default/dw91a8534a/images/hi-res/35328_1.jpg" alt="..." class="card-img-top">
+            <div style="width: 240px;height: 210px;">
+              <img src="{{$product->getPicture()}}" alt="product" class="img-fluid">
             </div>
-            <div class="text-center font-weight-bold">{{ $product->name }}</div>
+          <div class="text-center font-weight-bold"><a href="{{route('product', ['id' => $product->id])}}">{{ $product->name }}</a></div>
             <hr>
             <div class="row no-gutters">
                 <div class="col-md-6">
@@ -20,8 +29,8 @@
                 </div>
                 <div class="col-md-6">
                       @if ($product->available)
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary add-cart-action" data-id-product="{{ $product->id }}">в корзину</button>
-                      @else
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary add-cart-action" data-id-product="{{ $product->id }}">{{ ($product->inCart()) ? 'удалить':'в корзину'}}</button>
+                        @else
                         <div class="text-right">нет в наличии</div>
                       @endif
                 </div>
@@ -32,7 +41,7 @@
           @endforeach
     </div>
     <div class="d-flex justify-content-center">
-    {{ $products->links() }}
+    {{ $links->links() }}
     </div>
 @endsection
 

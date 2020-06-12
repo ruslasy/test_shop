@@ -21,4 +21,23 @@ class Product extends Model
     protected $fillable = [
         'name', 'description', 'picture', 'price', 'availability',
     ];
+
+    public function inCart()
+	{
+        $cart = session()->get('cart.items') ?? [];
+        
+        if (in_array($this->id, $cart)){
+            return true;
+        }
+
+        return false;
+    }
+
+    public function getPicture()
+    {
+        if(file_exists(public_path().$this->picture)){
+            return $this->picture;
+        }
+        return '/bg.jpg';
+    }
 }

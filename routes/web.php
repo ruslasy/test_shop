@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 Route::prefix('catalog')->group(function () {
     Route::get('/', 'Catalog\CatalogController@default');
+    Route::get('/product/{id}', 'Catalog\CatalogController@product')->name('product');;
     Route::get('cart/toggle/{id}', 'Catalog\CartController@toggle');
+    Route::get('cart/', 'Catalog\CartController@count');
+
 
 });

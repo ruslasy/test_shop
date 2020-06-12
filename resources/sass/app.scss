@@ -1,15 +1,19 @@
 //
 @import "pricing.scss";
 
+.nav-bar-custom
+{
+    background-color: #fff;
+}
 .count {
     border-radius: 50%;
-    display: flex;
+    display: none;
     position: absolute;
     top: 0;
     right: 0;
     align-items: center;
     justify-content: center;
-    transform: translate(-90%, 40%);
+    transform: translate(50%, -50%);
     background-color: #f33;
     width: 20px;
     height: 20px;
