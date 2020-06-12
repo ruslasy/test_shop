@@ -18,8 +18,8 @@
     <div class="col mb-4">
         <div class="card mb-4 box-shadow">
           <div class="card-body">
-            <div style="width: 240px;height: 210px;">
-              <img src="{{$product->getPicture()}}" alt="product" class="img-fluid">
+            <div style="height: 210px;">
+              <img src="{{$product->getPicture()}}" alt="product" class="img-fluid" style="max-height: 210px;">
             </div>
           <div class="text-center font-weight-bold"><a href="{{route('product', ['id' => $product->id])}}">{{ $product->name }}</a></div>
             <hr>

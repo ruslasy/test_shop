@@ -16,6 +16,7 @@
       <div class="card-body">
       <h5 class="card-title">{{ $product->name }}</h5>
         <p class="card-text">{{ $product->description }}</p>
+        <p class="card-text">{{ $product->price }} руб.</p>
         <p class="card-text">
           @if ($product->available)
           <button type="button" class="btn btn-lg btn-outline-primary add-cart-action" data-id-product="{{ $product->id }}">{{ ($product->inCart()) ? 'удалить':'в корзину'}}</button>

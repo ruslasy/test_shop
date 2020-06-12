@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::prefix('catalog')->group(function () {
@@ -22,6 +22,4 @@ Route::prefix('catalog')->group(function () {
     Route::get('/product/{id}', 'Catalog\CatalogController@product')->name('product');;
     Route::get('cart/toggle/{id}', 'Catalog\CartController@toggle');
     Route::get('cart/', 'Catalog\CartController@count');
-
-
 });
