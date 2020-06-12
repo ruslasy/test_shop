@@ -45,7 +45,7 @@ class CatalogController extends Controller
 
     public function product(Request $request, $id)
     {
-        $product = Product::find($id);
+        $product = Product::find((int)$id);
 
         return view('catalog.product', ['product' => $product]);
     }
