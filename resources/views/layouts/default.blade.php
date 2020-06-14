@@ -6,7 +6,7 @@
         <link href="https://bootstrap-4.ru/dist/css/bootstrap.min.css"  rel="stylesheet">
         <link href="{{ mix('/css/app.css') }}"  rel="stylesheet">
 
-        <title>App Name - @yield('title')</title>
+        <title>Тестовое задание - @yield('title')</title>
     </head>
     <body>
     <div class="navbar navbar-expand-md navbar-ligth box-shadow px-md-5 p-3 sticky-top nav-bar-custom ">
