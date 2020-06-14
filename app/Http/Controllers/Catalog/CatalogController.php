@@ -16,31 +16,24 @@ class CatalogController extends Controller
     
     public function default(Request $request)
     {
-        $sort_name = 'name';
-        $sort_type = 'asc';
-        $sortPrice = 0;
-        $sortName = 0;
+        $sort = ['name', 'price'];
+        $sortName = 'name';
+        $sortOrder = 'asc';
 
-        if(isset($request->price)){
-            $sort_name = 'price';
-            $sort_type = ((bool)$request->price)? 'desc' : 'asc';
-            $sortPrice = (bool)$request->price;
+        if(isset($request->sort) && isset($request->order)){
+            $sortName = in_array($request->sort, $sort) ? $request->sort : $sortName;
+            $sortOrder = $request->order ? 'desc' : 'asc';
         }
 
-        if(isset($request->name)){
-            $sort_name = 'name';
-            $sort_type = ((bool)$request->name)? 'desc' : 'asc';
-            $sortName = (bool)$request->name;
-        }
-
-        $products = Product::orderBy($sort_name, $sort_type)->paginate(10);
+        $products = Product::orderBy($sortName, $sortOrder)->paginate(10);
         
-        if($sortPrice)
-            $products->appends(['price' => $sortPrice]);
-        if($sortName)
-            $products->appends(['name' => $sortName]);
+        if(isset($request->sort) && isset($request->order)){
+            $products->appends(['sort' => $sortName]);
+            $products->appends(['order' => $request->order]);
+        }
 
-        return view('catalog.default', ['products' => $products, 'links' => $products , 'sortPrice' => (int)!$sortPrice, 'sortName' => (int)!$sortName]);
+        return view('catalog.default', ['products' => $products, 'links' => $products , 
+            'sortOrder' => (int)!$request->order, 'sortName' => $sortName]);
     }
 
     public function product(Request $request, $id)
