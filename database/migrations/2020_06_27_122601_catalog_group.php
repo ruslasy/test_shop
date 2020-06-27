@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Product extends Migration
+class CatalogGroup extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class Product extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('catalog_group', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 100)->unique();
             $table->timestamps();
-            $table->string('name', 100);
-            $table->text('description');
-            $table->string('picture');
-            $table->test('price');
-            $table->boolean('available');
         });
     }
 
@@ -31,6 +27,6 @@ class Product extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product');
+        //
     }
 }
