@@ -10,8 +10,8 @@
 <div class="pricing-header px-3 py-3 pt-md-3 pb-md-4 mx-auto text-center ">
 </div>
 <div class="text-center p-3">
-  <a href="{{ Request::url()}}?sort=name&order={{ ($sortName == 'name') ? $sortOrder : '0' }}">сортировать по названию</a>
-  <a href="{{ Request::url()}}?sort=price&order={{ ($sortName == 'price') ? $sortOrder : '0' }}">сортировать по цене</a>
+  <a class="mx-1" href="{{ Request::url()}}?sort=name&order={{ ($sortName == 'name') ? $sortOrder : '0' }}">сортировать по названию</a>
+  <a class="mx-1" href="{{ Request::url()}}?sort=price&order={{ ($sortName == 'price') ? $sortOrder : '0' }}">сортировать по цене</a>
 </div>
 <div class="row row-cols-1 row-cols-md-3">
     @foreach ($products as $product)

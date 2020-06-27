@@ -1,22 +1,8 @@
-//
-@import "pricing.scss";
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-.nav-bar-custom
-{
-    background-color: #fff;
-}
-.count {
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    align-items: center;
-    justify-content: center;
-    transform: translate(50%, -50%);
-    background-color: #f33;
-    width: 20px;
-    height: 20px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-}
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

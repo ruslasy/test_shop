@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="https://bootstrap-4.ru/dist/css/bootstrap.min.css"  rel="stylesheet">
         <link href="{{ mix('/css/app.css') }}"  rel="stylesheet">
 
         <title>Тестовое задание - @yield('title')</title>
@@ -25,7 +24,7 @@
         </div>
 
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="text-center">Тестовое задание на должность "WEB-программист PHP(middle)"</div>
+        <div class="text-center">Тестовое задание</div>
       </footer>
     </div>
     <script src="{{ mix('/js/app.js') }}"></script>
