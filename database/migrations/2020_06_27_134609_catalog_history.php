@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CatalogGroup extends Migration
+class CatalogHistory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CatalogGroup extends Migration
      */
     public function up()
     {
-        Schema::create('catalog_group', function (Blueprint $table) {
+        Schema::create('catalog_history', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 30)->unique();
-            $table->string('description', 500)->unique();
             $table->timestamps();
+            $table->bigInteger('product_id')->unsigned();
+            $table->integer('quantity')->unsigned();
+            $table->integer('quantity_old')->unsigned();
+
+            $table->foreign('product_id')->references('id')->on('catalog_product');
         });
     }
 
@@ -28,6 +31,6 @@ class CatalogGroup extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catalog_group');
+        Schema::dropIfExists('catalog_history');
     }
 }

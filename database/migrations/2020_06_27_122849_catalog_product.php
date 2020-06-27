@@ -14,14 +14,16 @@ class CatalogProduct extends Migration
     public function up()
     {
         Schema::create('catalog_product', function (Blueprint $table) {
-            $table->id('id');
-            $table->foreignId('group_id');
-            $table->timestamps();
-            $table->string('title', 100)->unique();
-            $table->text('description');
+            $table->id();
+            $table->bigInteger('group_id')->unsigned();
+            $table->string('title', 50)->unique();
+            $table->string('description', 500);
             $table->string('picture');
             $table->decimal('price');
             $table->boolean('available');
+            $table->timestamps();
+
+            $table->foreign('group_id')->references('id')->on('catalog_group');
         });
     }
 
@@ -32,6 +34,6 @@ class CatalogProduct extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('catalog_product');
     }
 }
