@@ -27,7 +27,7 @@ Route::group([
 
 Route::get('/catalog/products', 'API\Catalog@getProducts');
 
-Route::middleware('auth:api')->get('/catalog/categories', 'API\Catalog@getСategories');
+Route::get('/catalog/categories', 'API\Catalog@getСategories');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
