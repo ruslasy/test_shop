@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models\Catalog;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CatalogHistory extends Model
+class History extends Model
 {
      /**
      * The table associated with the model.

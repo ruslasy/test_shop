@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models\Catalog;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CatalogGroup extends Model
+class Group extends Model
 {
     /**
      * The table associated with the model.
