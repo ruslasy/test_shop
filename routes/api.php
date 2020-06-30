@@ -27,7 +27,16 @@ Route::group([
 
 Route::get('/catalog/products', 'API\Catalog@getProducts');
 
-Route::get('/catalog/categories', 'API\Catalog@getСategories');
+Route::get('/catalog/group', 'API\Catalog@getGroups');
+Route::post('/catalog/group', 'API\Catalog@createGroup');
+Route::post('/catalog/group/{id}', 'API\Catalog@updateGroup');
+Route::delete('/catalog/group/{id}', 'API\Catalog@deleteGroup');
+
+Route::get('/catalog/product', 'API\Catalog@getProduct');
+Route::get('/catalog/product/{id}', 'API\Catalog@showProduct');
+Route::post('/catalog/product', 'API\Catalog@createProduct');
+Route::post('/catalog/product/{id}', 'API\Catalog@updateProduct');
+Route::delete('/catalog/product/{id}', 'API\Catalog@deleteProduct');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

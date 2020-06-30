@@ -11,7 +11,7 @@ class Product extends Model
      *
      * @var string
      */
-    protected $table = 'product';
+    protected $table = 'catalog_product';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +19,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'picture', 'price', 'availability',
+        'name', 'description', 'picture', 'price', 'quantity',
     ];
 
     public function inCart()
@@ -39,5 +39,13 @@ class Product extends Model
             return $this->picture;
         }
         return '/bg.jpg';
+    }
+
+    /**
+     * Get the history for product.
+     */
+    public function history()
+    {
+        return $this->hasMany('App\Models\Catalog\History', 'product_id', 'id');
     }
 }

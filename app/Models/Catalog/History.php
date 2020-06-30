@@ -12,5 +12,5 @@ class History extends Model
      * @var string
      */
     protected $table = 'catalog_history';
-
+    
 }
