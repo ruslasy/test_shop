@@ -13,7 +13,7 @@ class Group extends Model
      */
     protected $table = 'catalog_group';
 
-    public static function groupsPoductCount()
+    public function groupsPoductCount()
     {
         $groups = \Illuminate\Support\Facades\DB::table($this->table)
             ->leftJoin('catalog_product', 'catalog_product.group_id', '=', 'catalog_group.id')

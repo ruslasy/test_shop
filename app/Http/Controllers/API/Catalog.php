@@ -45,6 +45,7 @@ class Catalog extends BaseController
      */
     public function updateGroup(Request $request, $id)
     {
+        die(var_dump($request->input('title')));
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:30',
             'description' => 'max:500',
@@ -94,7 +95,7 @@ class Catalog extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function getGroups()
+    public function getGroup()
     {
         $groups = DB::table('catalog_group')
             ->leftJoin('catalog_product', 'catalog_product.group_id', '=', 'catalog_group.id')

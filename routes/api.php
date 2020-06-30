@@ -25,19 +25,16 @@ Route::group([
     Route::get('profile', 'JWTAuthController@profile');
 });
 
-Route::get('/catalog/products', 'API\Catalog@getProducts');
+Route::middleware('auth:api')->prefix('catalog')->group(function () {
+    Route::get('/group', 'API\Catalog@getGroup');
+    Route::post('/group', 'API\Catalog@createGroup');
+    Route::post('/group/{id}', 'API\Catalog@updateGroup');
+    Route::delete('/group/{id}', 'API\Catalog@deleteGroup');
 
-Route::get('/catalog/group', 'API\Catalog@getGroups');
-Route::post('/catalog/group', 'API\Catalog@createGroup');
-Route::post('/catalog/group/{id}', 'API\Catalog@updateGroup');
-Route::delete('/catalog/group/{id}', 'API\Catalog@deleteGroup');
+    Route::get('/product/{id}', 'API\Catalog@showProduct');
+    Route::post('/product', 'API\Catalog@createProduct');
+    Route::post('/product/{id}', 'API\Catalog@updateProduct');
+    Route::delete('/product/{id}', 'API\Catalog@deleteProduct');
+});
 
 Route::get('/catalog/product', 'API\Catalog@getProduct');
-Route::get('/catalog/product/{id}', 'API\Catalog@showProduct');
-Route::post('/catalog/product', 'API\Catalog@createProduct');
-Route::post('/catalog/product/{id}', 'API\Catalog@updateProduct');
-Route::delete('/catalog/product/{id}', 'API\Catalog@deleteProduct');
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
