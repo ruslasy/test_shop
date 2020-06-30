@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Catalog;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\Catalog\Product;
 
 class CatalogController extends Controller
 {
@@ -16,8 +16,8 @@ class CatalogController extends Controller
     
     public function default(Request $request)
     {
-        $sort = ['name', 'price'];
-        $sortName = 'name';
+        $sort = ['title', 'price'];
+        $sortName = 'title';
         $sortOrder = 'asc';
 
         if(isset($request->sort) && isset($request->order)){

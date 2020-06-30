@@ -21,14 +21,14 @@
             <div style="height: 210px;">
               <img src="/bg.jpg" srcset="{{$product->getPicture()}}" alt="product" class="img-fluid" style="max-height: 210px;">
             </div>
-          <div class="text-center font-weight-bold"><a href="{{route('product', ['id' => $product->id])}}">{{ $product->name }}</a></div>
+          <div class="text-center font-weight-bold"><a href="{{route('product', ['id' => $product->id])}}">{{ $product->title }}</a></div>
             <hr>
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <h5 class="card-title text-sm-left">{{ $product->price }} руб.</h5>
                 </div>
                 <div class="col-md-6">
-                      @if ($product->available)
+                      @if ($product->quantity)
                         <button type="button" class="btn btn-lg btn-block btn-outline-primary add-cart-action" data-id-product="{{ $product->id }}">{{ ($product->inCart()) ? 'удалить':'в корзину'}}</button>
                         @else
                         <div class="text-right">нет в наличии</div>
