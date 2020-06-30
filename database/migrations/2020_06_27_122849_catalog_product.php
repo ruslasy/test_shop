@@ -20,7 +20,7 @@ class CatalogProduct extends Migration
             $table->string('description', 500);
             $table->string('picture');
             $table->decimal('price');
-            $table->boolean('available');
+            $table->integer('quantity');
             $table->timestamps();
 
             $table->foreign('group_id')->references('id')->on('catalog_group');
